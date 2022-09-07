@@ -6,8 +6,8 @@ class NewExerciseForm extends React.Component {
     this.state = {
       name: '',
       description: '',
-      reps: 0,
-      sets: 0,
+      reps: '',
+      sets: '',
       category: 'Upper Body',
       video_url: ''
     }
@@ -68,27 +68,19 @@ class NewExerciseForm extends React.Component {
   addExercise() {
     var newExercise = {
       name: this.state.name,
-      descript: this.state.description,
+      description: this.state.description,
       reps: this.state.reps,
       sets: this.state.sets,
       category: this.state.category,
       video_url: this.state.video_url
     }
-    // var newExercise = {
-    //   name: 'Shouder Press',
-    //   descript: '',
-    //   reps: 12,
-    //   sets: 2,
-    //   category: 'Upper Body',
-    //   video_url: 'https://youtu.be/qEwKCR5JCog'
-    // }
     this.props.addNewExercise(newExercise);
     this.setState({
       name: '',
       description: '',
       reps: 0,
       sets: 0,
-      category: '',
+      category: 'Upper Body',
       video_url: ''
     })
   }
@@ -103,19 +95,19 @@ class NewExerciseForm extends React.Component {
         </div>
         <div className='field'>
           Description:
-          <input type='text' name='ex-description' value={this.state.description} onChange={this.onChangeDescription.bind(this)} />
+          <input type='text' name='description' value={this.state.description} onChange={this.onChangeDescription.bind(this)} />
         </div>
         <div className='field'>
           Reps:
-          <input type='number' name='ex-reps' value={this.state.reps} onChange={this.onChangeReps.bind(this)} />
+          <input type='number' name='reps' value={Number(this.state.reps).toString()} onChange={this.onChangeReps.bind(this)} />
         </div>
         <div className='field'>
           Sets:
-          <input type='number' name='ex-sets' value={this.state.sets} onChange={this.onChangeSets.bind(this)} />
+          <input type='number' name='sets' value={Number(this.state.sets).toString()} onChange={this.onChangeSets.bind(this)} />
         </div>
         <div>
           Category:
-          <select className='select-field' value='this.state.category' onChange={this.onChangeCategory.bind(this)}>
+          <select className='select-field' name='category' value='this.state.category' onChange={this.onChangeCategory.bind(this)}>
           {this.categories.map((category) => (
             <option value={category.value} key={category.value}>{category.label}</option>
           ))}
@@ -123,7 +115,7 @@ class NewExerciseForm extends React.Component {
         </div>
         <div className='field'>
           Video URL:
-          <input type='text' id='ex-video-url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
+          <input type='text' name='video_url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
         </div>
         <button onClick={this.addExercise.bind(this)}>Add Exercise</button>
       </div>

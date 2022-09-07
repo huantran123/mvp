@@ -17,6 +17,10 @@ let exerciseSchema = mongoose.Schema({
   video_url: {
     type: String,
     default: ''
+  },
+  video_id: {
+    type: String,
+    default: ''
   }
 })
 
