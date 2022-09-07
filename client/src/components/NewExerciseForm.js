@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
 
 class NewExerciseForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class NewExerciseForm extends React.Component {
       video_url: ''
     }
 
-    // this.categories = ['Upper Body', 'Lower Body', 'Core', 'Cardio', 'Flexibility'];
     this.categories =  [
       {value: 'Upper Body', label: 'Upper Body'},
       {value: 'Lower Body', label: 'Lower Body'},
@@ -87,37 +87,39 @@ class NewExerciseForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Add New Exercise</h1>
-        <div className='field'>
-          Name:
-          <input type='text' name='name' value={this.state.name} onChange={this.onChangeName.bind(this)} />
-        </div>
-        <div className='field'>
-          Description:
-          <input type='text' name='description' value={this.state.description} onChange={this.onChangeDescription.bind(this)} />
-        </div>
-        <div className='field'>
-          Reps:
-          <input type='number' name='reps' value={Number(this.state.reps).toString()} onChange={this.onChangeReps.bind(this)} />
-        </div>
-        <div className='field'>
-          Sets:
-          <input type='number' name='sets' value={Number(this.state.sets).toString()} onChange={this.onChangeSets.bind(this)} />
-        </div>
-        <div>
-          Category:
-          <select className='select-field' name='category' value='this.state.category' onChange={this.onChangeCategory.bind(this)}>
-          {this.categories.map((category) => (
-            <option value={category.value} key={category.value}>{category.label}</option>
-          ))}
-        </select>
-        </div>
-        <div className='field'>
-          Video URL:
-          <input type='text' name='video_url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
-        </div>
-        <button onClick={this.addExercise.bind(this)}>Add Exercise</button>
+      <div style={{marginBottom:'30px'}}>
+        <h3>Add New Exercise</h3>
+        <Box sx={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'flex-start' , alignItems: 'flex-start', gap:'10px', paddingLeft: '20px'}}>
+          <div className='field'>
+            Name:
+            <input style={{marginLeft: "10px"}} type='text' name='name' value={this.state.name} onChange={this.onChangeName.bind(this)} />
+          </div>
+          <div className='field'>
+            Description:
+            <input style={{marginLeft: "10px"}} type='text' name='description' value={this.state.description} onChange={this.onChangeDescription.bind(this)} />
+          </div>
+          <div className='field'>
+            Reps:
+            <input style={{marginLeft: "10px"}} type='number' name='reps' value={Number(this.state.reps).toString()} onChange={this.onChangeReps.bind(this)} />
+          </div>
+          <div className='field'>
+            Sets:
+            <input style={{marginLeft: "10px"}} type='number' name='sets' value={Number(this.state.sets).toString()} onChange={this.onChangeSets.bind(this)} />
+          </div>
+          <div>
+            Category:
+            <select style={{marginLeft: "10px"}} className='select-field' name='category' value='this.state.category' onChange={this.onChangeCategory.bind(this)}>
+            {this.categories.map((category) => (
+              <option value={category.value} key={category.value}>{category.label}</option>
+            ))}
+          </select>
+          </div>
+          <div className='field'>
+            Video URL:
+            <input style={{marginLeft: "10px"}} type='text' name='video_url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
+          </div>
+          <button style={{padding: "10px 20px", background:'#009aff', color:'white', border: '0', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.addExercise.bind(this)}>Add Exercise</button>
+        </Box>
       </div>
     )
   }

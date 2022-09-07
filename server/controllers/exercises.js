@@ -26,8 +26,20 @@ export const createExercise = async (req, res) => {
   const newExercise = new Exercise(exercise);
   try {
     await newExercise.save();
-    res.status(201).json(newExercise)
+    const exercises = await Exercise.find();
+    res.status(201).json(exercises)
   } catch (err) {
     res.status(409).json({message: err.message});
   }
+}
+
+export const deleteExercise = async (req, res) => {
+  try {
+    await Exercise.deleteOne(req.body);
+    const exercises = await Exercise.find();
+    res.status(202).json(exercises)
+  } catch (err) {
+    res.status(409).json({message: err.message});
+  }
+
 }

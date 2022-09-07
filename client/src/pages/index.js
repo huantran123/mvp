@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import NewExerciseForm from '../components/NewExerciseForm';
+import Card from '../components/Card.js'
+import Box from '@material-ui/core/Box';
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,8 +13,8 @@ class Home extends React.Component {
   }
 
   getExercises () {
-    $.get('/exercises')
-      .data((exercises) => {
+    $.get('http://localhost:2000/exercises')
+      .done((exercises) => {
         this.setState({
           exercises
         })
@@ -22,64 +24,68 @@ class Home extends React.Component {
       })
   }
 
-  componetDidMount() {
+  componentDidMount() {
     this.getExercises();
   }
 
   addNewExercise (exerciseObj) {
     console.log('Exercise is adding');
     $.post('http://localhost:2000/exercises', exerciseObj)
-      .done((data) => {
+      .done((exercises) => {
         console.log('Exercise is successfully added!')
-        console.log(data);
         // this.getExercises();
+        this.setState({
+          exercises
+        })
       })
       .fail(() => {
         console.log('Unable to add exercise.');
       })
   }
 
-  addExercise() {
-    // var newExercise = {
-    //   name: this.state.name,
-    //   descript: this.state.description,
-    //   reps: this.state.reps,
-    //   sets: this.state.sets,
-    //   category: this.state.category,
-    //   video_url: this.state.video_url
-    // }
-    var newExercise = {
-      name: 'Shouder Press',
-      descript: '',
-      reps: 12,
-      sets: 2,
-      category: 'Upper Body',
-      video_url: 'https://youtu.be/qEwKCR5JCog'
-    }
-    $.post('/exercises', newExercise)
-      .done((data) => {
-        console.log('Exercise is successfully added!')
-        console.log(data);
-        // this.getExercises();
-      })
-      .fail(() => {
-        console.log('Unable to add exercise.');
-      })
-    // this.setState({
-    //   name: '',
-    //   description: '',
-    //   reps: 0,
-    //   sets: 0,
-    //   category: this.categories[0],
-    //   video_url: ''
-    // })
+  deleteExercise(exerciseName) {
+    $.ajax({
+      url: 'http://localhost:2000/exercises',
+      type: 'DELETE',
+      data: {name: exerciseName},
+      success: (exercises) => {
+        console.log('Exercise is successfully removed!')
+        this.setState({
+          exercises
+        })
+      },
+      fail: () => {
+        console.log('Unable to remove exercise.');
+      }
+    })
   }
+
+
 
   render() {
     return (
       <div>
         <h1>Your Exercise List</h1>
         <NewExerciseForm addNewExercise={this.addNewExercise.bind(this)} />
+        {this.state.exercises.length === 0 ? <div style={{color:'#7b878e'}}>No exercise yet!</div> : null}
+        <div className='cards'>
+          <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+            {this.state.exercises.map((exercise) => (
+              <Card
+                currentPage='home'
+                key={exercise._id}
+                name={exercise.name}
+                description={exercise.description}
+                reps={exercise.reps}
+                sets={exercise.sets}
+                category={exercise.category}
+                thumbnail={exercise.thumbnail}
+                video_id={exercise.video_id}
+                deleteFunction={this.deleteExercise.bind(this)}
+              />
+            ))}
+          </Box>
+        </div>
       </div>
     );
   }

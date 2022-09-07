@@ -17,6 +17,7 @@ export const NavLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
+  padding-bottom: 10px;
   height: 100%;
   cursor: pointer;
   &.active {
@@ -46,8 +47,8 @@ export const NavMenu = styled.div`
   /* margin-right: 24px; */
   /* Third Nav */
   /* width: 100vw;
-white-space: nowrap; */
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+  white-space: nowrap; */
+  // @media screen and (max-width: 768px) {
+  //   display: none;
+  // }
 `;

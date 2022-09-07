@@ -10,6 +10,7 @@ import Thursday from './pages/thursday';
 import Friday from './pages/friday';
 import Saturday from './pages/saturday';
 import Sunday from './pages/sunday';
+import Box from '@material-ui/core/Box';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,30 +26,32 @@ class App extends React.Component {
       <Router>
         <Nav>
             <NavMenu>
-              <NavLink to="/">
-                Home
-              </NavLink>
-              <NavLink to="/workout-day/monday" >
-                Monday
-              </NavLink>
-              <NavLink to="/workout-day/tuesday" >
-                Tuesday
-              </NavLink>
-              <NavLink to="/workout-day/wednesday" >
-                Wednesday
-              </NavLink>
-              <NavLink to="/workout-day/thursday" >
-                Thursday
-              </NavLink>
-              <NavLink to="/workout-day/friday" >
-                Friday
-              </NavLink>
-              <NavLink to="/workout-day/saturday" >
-                Saturday
-              </NavLink>
-              <NavLink to="/workout-day/sunday" >
-                Sunday
-              </NavLink>
+              <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                <NavLink to="/">
+                  Home
+                </NavLink>
+                <NavLink to="/workout-day/monday" >
+                  Monday
+                </NavLink>
+                <NavLink to="/workout-day/tuesday" >
+                  Tuesday
+                </NavLink>
+                <NavLink to="/workout-day/wednesday" >
+                  Wednesday
+                </NavLink>
+                <NavLink to="/workout-day/thursday" >
+                  Thursday
+                </NavLink>
+                <NavLink to="/workout-day/friday" >
+                  Friday
+                </NavLink>
+                <NavLink to="/workout-day/saturday" >
+                  Saturday
+                </NavLink>
+                <NavLink to="/workout-day/sunday" >
+                  Sunday
+                </NavLink>
+              </Box>
             </NavMenu>
           </Nav>
         <Routes>
