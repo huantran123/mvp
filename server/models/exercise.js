@@ -28,4 +28,3 @@ let Exercise = mongoose.model('Exercise', exerciseSchema);
 
 export default Exercise;
 
-

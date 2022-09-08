@@ -1,8 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
-import NewExerciseForm from '../components/NewExerciseForm';
-import Card from '../components/Card.js'
-import Box from '@material-ui/core/Box';
+import NewExerciseForm from '../components/NewExerciseForm.jsx';
+import Card from '../components/Card.jsx'
+import Box from '@mui/material/Box';
 
 class Home extends React.Component {
   constructor(props) {
@@ -64,27 +64,25 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='body-container'>
         <h1>Your Exercise List</h1>
         <NewExerciseForm addNewExercise={this.addNewExercise.bind(this)} />
-        {this.state.exercises.length === 0 ? <div style={{color:'#7b878e'}}>No exercise yet!</div> : null}
         <div className='cards'>
-          <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-            {this.state.exercises.map((exercise) => (
-              <Card
-                currentPage='home'
-                key={exercise._id}
-                name={exercise.name}
-                description={exercise.description}
-                reps={exercise.reps}
-                sets={exercise.sets}
-                category={exercise.category}
-                thumbnail={exercise.thumbnail}
-                video_id={exercise.video_id}
-                deleteFunction={this.deleteExercise.bind(this)}
-              />
-            ))}
-          </Box>
+          {this.state.exercises.length === 0 ? <div style={{color:'#7b878e'}}>No exercise yet!</div> : null}
+          {this.state.exercises.map((exercise) => (
+            <Card
+              currentPage='home'
+              key={exercise._id}
+              name={exercise.name}
+              description={exercise.description}
+              reps={exercise.reps}
+              sets={exercise.sets}
+              category={exercise.category}
+              thumbnail={exercise.thumbnail}
+              video_id={exercise.video_id}
+              deleteFunction={this.deleteExercise.bind(this)}
+            />
+          ))}
         </div>
       </div>
     );

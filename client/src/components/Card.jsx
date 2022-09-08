@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 class ExerciseCard extends React.Component {
   // constructor(props) {
@@ -30,16 +30,16 @@ class ExerciseCard extends React.Component {
               {this.props.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {this.props.description}
+              Description: {this.props.description === '' ? 'N/A' : this.props.description}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Reps: {this.props.reps}
+              Reps: {this.props.reps === null ? 'N/A' : this.props.reps}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Sets: {this.props.sets}
+              Sets: {this.props.sets === null ? 'N/A' : this.props.sets}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Category: {this.props.category}
+              Category: {this.props.category === '' ? 'N/A' : this.props.category}
             </Typography>
           </CardContent>
           <CardActions>
@@ -54,38 +54,5 @@ class ExerciseCard extends React.Component {
 
 }
 
-// const ExerciseCard = ({ name, description, reps, sets, category, thumbnail }) => {
-//   return (
-//     <Card sx={{ maxWidth: 345 }}>
-//       <CardMedia
-//         component="img"
-//         height="140"
-//         image={thumbnail}
-//         alt={name}
-//       />
-//       <CardContent>
-//         <Typography gutterBottom variant="h5" component="div">
-//           {name}
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-//           {description}
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-//           Reps: {reps}
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-//           Sets: {sets}
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-//           Category: {category}
-//         </Typography>
-//       </CardContent>
-//       <CardActions>
-//         <Button size="small">Edit</Button>
-//         <Button size="small">Delete</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
 
 export default ExerciseCard;

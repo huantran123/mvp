@@ -1,0 +1,30 @@
+.body-container {
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 15px 15px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}

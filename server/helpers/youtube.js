@@ -1,7 +1,4 @@
 export const getVideoId = (url) => {
-  if (url === '') {
-    return '';
-  }
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
 
@@ -21,9 +18,6 @@ export const getIframe = (url) => {
 }
 
 export const getThumbnail = (url) => {
-  if (url === '') {
-    return '';
-  }
   const videoId = getVideoId(url);
   const thumbnailUrl = 'http://img.youtube.com/vi/' + videoId + '/0.jpg'
   return thumbnailUrl;
