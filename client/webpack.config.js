@@ -16,7 +16,7 @@ module.exports = {
   devtool: "eval-cheap-source-map",     // to hide webpack warning
   devServer: {
     port: 3000, // you can change the port
-    historyApiFallback: true,     // have to add this to make navbar work
+    historyApiFallback: true,     // have to add this to make navbar work https://stackoverflow.com/questions/43209666/react-router-v4-cannot-get-url
   },
   module: {
     rules: [

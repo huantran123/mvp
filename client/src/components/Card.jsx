@@ -10,19 +10,36 @@ import Box from '@mui/material/Box';
 class ExerciseCard extends React.Component {
   // constructor(props) {
   //   super(props);
+  //   this.state = {
+  //     selected: this.props.selectedCard,
+  //   }
   // }
+
+  edit() {
+    const selectedExercise = {
+      _id: this.props._id,
+      name: this.props.name,
+      description: this.props.description,
+      reps: this.props.reps,
+      sets: this.props.sets,
+      category: this.props.category,
+      video_url: this.props.video_url
+    }
+    this.props.openEditForm(selectedExercise);
+  }
 
   delete() {
     this.props.deleteFunction(this.props.name);
   }
 
+
   render() {
     return (
-      <Box m={2} pt={3} >
-        <Card sx={{ maxWidth: 300, border: '1px solid #c7c7c7', borderRadius:'15px' }} >
+      <Box m={2} pt={3}>
+        <Card sx={{ width: '360px', border: (!this.props.selectedCard) ? '1px solid #c7c7c7' : '5px solid red' , borderRadius:'15px' }} >
           <CardMedia
             component="iframe"
-            height="200"
+            height="200px"
             image={`https://www.youtube.com/embed/${this.props.video_id}`}
           />
           <CardContent>
@@ -43,7 +60,7 @@ class ExerciseCard extends React.Component {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Edit</Button>
+            <Button size="small" onClick={this.edit.bind(this)}>Edit</Button>
             <Button size="small" onClick={this.delete.bind(this)}>Delete</Button>
           </CardActions>
         </Card>

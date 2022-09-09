@@ -1,18 +1,17 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 
-class NewExerciseForm extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      description: '',
-      reps: '',
-      sets: '',
-      category: 'Upper Body',
-      video_url: ''
+      _id: this.props._id,
+      name: this.props.name,
+      description: this.props.description,
+      reps: this.props.reps,
+      sets: this.props.sets,
+      category: this.props.category,
+      video_url: this.props.video_url,
     }
-
     this.categories =  [
       {value: 'Upper Body', label: 'Upper Body'},
       {value: 'Lower Body', label: 'Lower Body'},
@@ -58,8 +57,9 @@ class NewExerciseForm extends React.Component {
     });
   }
 
-  addExercise() {
-    const newExercise = {
+  editExercise() {
+    const updatedExercise = {
+      _id: this.state._id,
       name: this.state.name,
       description: this.state.description,
       reps: this.state.reps,
@@ -67,21 +67,13 @@ class NewExerciseForm extends React.Component {
       category: this.state.category,
       video_url: this.state.video_url
     }
-    this.props.addNewExercise(newExercise);
-    this.setState({
-      name: '',
-      description: '',
-      reps: 0,
-      sets: 0,
-      category: 'Upper Body',
-      video_url: ''
-    })
+    this.props.editExercise(updatedExercise);
   }
 
   render() {
     return (
       <div className='form'>
-        <h4>Add New Exercise</h4>
+        <h4>Edit Exercise</h4>
         <div className='flex-col'>
           <div className='field'>
               Name:
@@ -111,11 +103,15 @@ class NewExerciseForm extends React.Component {
               Video URL:
               <input style={{marginLeft: "10px"}} type='text' name='video_url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
             </div>
-            <button style={{padding: "10px 20px", background:'#009aff', color:'white', border: '0', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.addExercise.bind(this)}>Add Exercise</button>
+            <div className='buttons-flex'>
+              <button style={{padding: "10px 20px", background:'#009aff', color:'white', border: '0', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.editExercise.bind(this)}>Add Exercise</button>
+              <button style={{padding: "10px 20px", background:'white', color:'#596269', border: '1px solid #596269', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.props.closeEditForm.bind(this)}>Cancel</button>
+            </div>
+
         </div>
       </div>
     )
   }
 }
 
-export default NewExerciseForm;
+export default EditForm;

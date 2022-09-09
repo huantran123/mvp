@@ -1,13 +1,14 @@
 import React from "react";
 
-const Saturday = () => {
-  return (
-    <div>
-      <h1>
-        Saturday Workout
-      </h1>
-    </div>
-  );
-};
+class Saturday extends React.Component {
+
+  render() {
+    return (
+      <div className='body-container'>
+        <h1>Saturday Workout</h1>
+      </div>
+    )
+  }
+}
 
 export default Saturday;

@@ -18,14 +18,14 @@ function NavbarComponent() {
       <Navbar bg="dark" variant="dark" style={{position: "sticky"}} fixed="top">
         <Container>
           <Navbar.Brand as={Link} to={"/"}>Workout Tracklist</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/workout-day/monday">Mon</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/tuesday"}>Tue</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/wednesday"}>Wed</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/thursday"}>Thu</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/friday"}>Fri</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/saturday"}>Sat</Nav.Link>
-            <Nav.Link as={Link} to={"/workout-day/sunday"}>Sun</Nav.Link>
+          <Nav className="flex-grow-1 justify-content-evenly">
+            <Nav.Link as={Link} to="/workout-day/monday">Monday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/tuesday"}>Tuesday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/wednesday"}>Wednesday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/thursday"}>Thursday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/friday"}>Friday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/saturday"}>Saturday</Nav.Link>
+            <Nav.Link as={Link} to={"/workout-day/sunday"}>Sunday</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

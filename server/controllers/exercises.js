@@ -33,6 +33,28 @@ export const createExercise = async (req, res) => {
   }
 }
 
+export const updateExercise = async (req, res) => {
+  const filter = { _id: req.body._id};
+  const updatedExercise = {
+    name: upperCaseFirstLetters(req.body.name),
+    description: req.body.description,
+    reps: req.body.reps,
+    sets: req.body.sets,
+    category: req.body.category,
+    thumbnail: getThumbnail(req.body.video_url),
+    video_url: req.body.video_url,
+    video_id: getVideoId(req.body.video_url)
+  }
+  try {
+    await Exercise.updateOne(filter, {$set: updatedExercise});
+    const exercises = await Exercise.find();
+    res.status(200).json(exercises)
+  } catch (err) {
+    res.status(409).json({message: err.message});
+  }
+
+}
+
 export const deleteExercise = async (req, res) => {
   try {
     await Exercise.deleteOne(req.body);
