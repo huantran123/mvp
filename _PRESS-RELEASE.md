@@ -17,29 +17,37 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  Workout Tracklist
+  <!-- > Name the product in a way the reader (i.e. your target customers) will understand. -->
+  > Workout Tracklist
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  <!-- > Describe who the market for the product is and what benefit they get. One sentence only underneath the title. -->
+  > For everyone who want an app to organize their workout program
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  <!-- > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
+  > This app is used by everyone who want to store their workout program to keep track with the schedule and organize their workout plan. People could use Workout Tracklist to store workout lessons, note the details of the exercises that work for them, keep track with their daily workout.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  <!-- > Describe the problem your product solves. -->
+  > Store workout exercises
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  <!-- > Describe how your product elegantly solves the problem. -->
+  > Generate a list of workout exercises that have details for each exercise: tutorial videos, name, description, reps, set, category
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  <!-- > A quote from a spokesperson in your company. -->
+  > "This app would solve all the problem you may have when getting started on a workout journey!"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  <!-- > Describe how easy it is to get started. -->
+  > It is very simple to use the app. Customers only need to grab the information of the workout exercise they want to store, then add the information to the input field, submit it and the exercise would be automatically added.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  <!-- > Provide a quote from a hypothetical customer that describes how they experienced the benefit. -->
+  > "This app is very easy to use. It helps me note all the details that I want to remember about the exercises"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  <!-- > Wrap it up and give pointers where the reader should go next. -->
+  > Just run the app and add as many exercises as you want and start training your health from today.
