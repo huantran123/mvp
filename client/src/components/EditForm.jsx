@@ -104,10 +104,9 @@ class EditForm extends React.Component {
               <input style={{marginLeft: "10px"}} type='text' name='video_url' value={this.state.video_url} onChange={this.onChangeVideoUrl.bind(this)} />
             </div>
             <div className='buttons-flex'>
-              <button style={{padding: "10px 20px", background:'#009aff', color:'white', border: '0', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.editExercise.bind(this)}>Add Exercise</button>
+              <button style={{padding: "10px 20px", background:'#009aff', color:'white', border: '0', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.editExercise.bind(this)}>Save Changes</button>
               <button style={{padding: "10px 20px", background:'white', color:'#596269', border: '1px solid #596269', borderRadius: '5px', cursor: 'pointer'}}  onClick={this.props.closeEditForm.bind(this)}>Cancel</button>
             </div>
-
         </div>
       </div>
     )

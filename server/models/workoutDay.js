@@ -5,8 +5,10 @@ let workoutDaySchema = mongoose.Schema({
     type: String,
     unique: true
   },
-  exercises: [String],
-  done: Boolean
+  exercises: {
+    type: [mongoose.SchemaTypes.ObjectId],
+    ref: 'Exercise'
+  },
 })
 
 let WorkoutDay = mongoose.model('WorkoutDay', workoutDaySchema);

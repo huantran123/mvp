@@ -12,7 +12,7 @@ import Saturday from '../pages/Saturday.jsx';
 import Sunday from '../pages/Sunday.jsx';
 
 
-function NavbarComponent() {
+const NavbarComponent = () => {
   return (
     <Router>
       <Navbar bg="dark" variant="dark" style={{position: "sticky"}} fixed="top">

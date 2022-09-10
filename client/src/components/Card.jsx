@@ -29,7 +29,7 @@ class ExerciseCard extends React.Component {
   }
 
   delete() {
-    this.props.deleteFunction(this.props.name);
+    this.props.deleteFunction(this.props._id);
   }
 
 

@@ -3,7 +3,6 @@ import $ from 'jquery';
 import NewExerciseForm from '../components/NewExerciseForm.jsx';
 import Card from '../components/Card.jsx'
 import EditForm from '../components/EditForm.jsx'
-import Box from '@mui/material/Box';
 
 class Home extends React.Component {
   constructor(props) {
@@ -47,11 +46,11 @@ class Home extends React.Component {
       })
   }
 
-  deleteExercise(exerciseName) {
+  deleteExercise(exerciseId) {
     $.ajax({
       url: this.url,
       type: 'DELETE',
-      data: {name: exerciseName},
+      data: {_id: exerciseId},
       success: (exercises) => {
         console.log('Exercise is successfully removed!')
         this.setState({
@@ -119,7 +118,6 @@ class Home extends React.Component {
           {this.state.exercises.length === 0 ? <div style={{color:'#7b878e'}}>No exercise yet!</div> : null}
           {this.state.exercises.map((exercise) => (
             <Card
-              currentPage='home'
               key={exercise._id}
               _id={exercise._id}
               name={exercise.name}

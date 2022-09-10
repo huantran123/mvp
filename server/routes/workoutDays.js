@@ -1,13 +1,17 @@
 import express from 'express';
 
-import {getWorkoutDay} from '../controllers/workoutDays.js';
+import {getWorkoutDay, createWorkoutDay, removeExercise} from '../controllers/workoutDays.js';
 
 const router = express.Router();
 
 // router.param('day', (req, res, next, id) => {
 //   next();
 // })
-router.route('/:day').get(getWorkoutDay)
+router
+  .route('/:day')
+  .get(getWorkoutDay)
+  .post(createWorkoutDay)
+  .put(removeExercise)
 
 
 export default router;
